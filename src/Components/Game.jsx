@@ -60,7 +60,7 @@ function Game() {
         </div>
         <button ref={buttonRef} onClick={rollDice} className='w-[9rem] h-[3rem] bg-blue-600 text-white rounded-lg text-[1.3rem] flex justify-center items-center gap-2'>
             {gameWon ? "New Game":"Roll Dice"}
-            <img className='w-7 aspect-square' src={dice} alt="" />
+            {gameWon ? null : <img className='w-7 aspect-square' src={dice} alt="" />}
         </button>
     </div>
   )
