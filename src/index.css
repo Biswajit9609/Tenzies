@@ -11,7 +11,7 @@
 .dice-conntainer{
     display: grid;
     grid-template: auto auto / repeat(5, 1fr);
-    gap: 20px;
+    gap: 1rem;
 }
 .dice{
     width: 50px;

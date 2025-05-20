@@ -48,7 +48,7 @@ function Game() {
         )
     })
   return (
-    <div className='bg-gray-300 h-[100%] max-h-[30rem] w-[100%] rounded-lg flex justify-evenly items-center flex-col'>
+    <div className='bg-gray-300 h-[100%] max-h-[30rem] w-[100%] max-w-[50rem] px-10 rounded-lg flex justify-evenly items-center flex-col'>
         {gameWon && <ReactConfetti />}
         <h1 className='px-10'>{gameWon ? `Congratulations! you won in ${turn} steps.` : "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}</h1>
         <div className='dice-conntainer'>
