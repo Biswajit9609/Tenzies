@@ -27,11 +27,15 @@ function Game() {
     }
 
     function rollDice(){
-        gameWon ? setNums(generateAllNewDice()) :
-        setNums(prev=>prev.map(element=>{
-            return (element.isHeld == false) ? {...element,"value":Math.ceil(Math.random()*6)} : element
-        }))
-        setTurn(prev=>prev+1)
+        if(gameWon)  {
+            setNums(generateAllNewDice())
+            setTurn(0)
+        } else {
+            setNums(prev=>prev.map(element=>{
+                return (element.isHeld == false) ? {...element,"value":Math.ceil(Math.random()*6)} : element
+            }))
+            setTurn(prev=>prev+1)
+        }
     }
 
     function toggleIsHeld(id){
@@ -48,9 +52,9 @@ function Game() {
         )
     })
   return (
-    <div className='bg-gray-300 h-[100%] max-h-[30rem] w-[100%] max-w-[50rem] px-10 rounded-lg flex justify-evenly items-center flex-col'>
+    <div className='bg-gray-300 h-[100%] max-h-[30rem] w-[100%] max-w-[50rem] rounded-lg flex justify-evenly items-center flex-col'>
         {gameWon && <ReactConfetti />}
-        <h1 className='px-10'>{gameWon ? `Congratulations! you won in ${turn} steps.` : "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}</h1>
+        <h1 className='px-10 text-[1.1rem]'>{gameWon ? `Congratulations! you won in ${turn} steps.` : "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}</h1>
         <div className='dice-conntainer'>
             {dices}
         </div>
