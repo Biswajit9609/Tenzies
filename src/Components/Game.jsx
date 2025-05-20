@@ -1,7 +1,7 @@
 import {React,useState,useEffect,useRef} from 'react'
 import Die from './Die'
 import ReactConfetti from 'react-confetti'
-
+import dice from "../assets/icons8-dice-50 (2).png"
 function Game() {
     const buttonRef = useRef(null)
     let gameWon = false
@@ -58,7 +58,10 @@ function Game() {
         <div className='dice-conntainer'>
             {dices}
         </div>
-        <button ref={buttonRef} onClick={rollDice} className='w-[8rem] h-[3rem] bg-blue-600 text-white rounded-lg text-[1.3rem]'>{gameWon ? "New Game":"Roll Dice"}</button>
+        <button ref={buttonRef} onClick={rollDice} className='w-[9rem] h-[3rem] bg-blue-600 text-white rounded-lg text-[1.3rem] flex justify-center items-center gap-2'>
+            {gameWon ? "New Game":"Roll Dice"}
+            <img className='w-7 aspect-square' src={dice} alt="" />
+        </button>
     </div>
   )
 }
