@@ -1,4 +1,4 @@
-import {React,useState,useEffect,useRef} from 'react'
+import {useState,useEffect,useRef} from 'react'
 import Die from './Die'
 import ReactConfetti from 'react-confetti'
 import dice from "../assets/icons8-dice-50 (2).png"
@@ -7,11 +7,11 @@ function Game() {
     let gameWon = false
     const [turn,setTurn] = useState(0)
     const [nums,setNums] = useState(()=>generateAllNewDice())
-     if(nums.every(die=>die.isHeld) && nums.every(die=>die.value == nums[0].value)){
+    if(nums.every(die=>die.isHeld) && nums.every(die=>die.value == nums[0].value)){
         gameWon = true
         console.log(gameWon)
         console.log(`Game won in ${turn} turns`)
-     }
+    }
     useEffect(()=>{
         if (gameWon){
             buttonRef.current.focus()
